@@ -1,0 +1,25 @@
+name=example-package
+version=0.1
+description="Example package for reference and testing"
+url="https://www.github.com/sisyphos-linux/packages/tree/master/example-package/"
+sources=("https://raw.github.com/sisyphos-linux/packages/master/$name/$name-$version/$name-$version.tar.xz"{,.sig})
+checksums=("sha256:84ff92691f909a05b224e1c56abb4864f01b4f8e3c854e4bb4c7baf1d3f6d652", "")
+dependencies=()
+dependencies_build=()
+
+s_build () {
+  ./configure --prefix=/usr
+  make
+}
+
+s_test () {
+  make check
+}
+
+s_install () {
+  make install
+}
+
+s_uninstall () {
+  make uninstall
+}
